@@ -1,15 +1,118 @@
 <div class="container">
- 
+
     <div class="row">
         <div class="col-4">
             <div class="form-group">
                 <label for="Country">Country</label>
-                <select name="country" id="country" class="form-control"></select>
+                <select name="country" id="country" class="form-control" (change)="OnCountryChange($event)">
+                    <option value="">---country---</option>
+                    <option *ngFor="let c of countries" [value]="c">{{c}}</option>
+                </select>
             </div>
+        </div>
+        <div class="col-4">
 
             <div class="form-group">
                 <label for="city">City</label>
-                <select name="city" id="city" class="form-control"></select>
+                <select name="city" id="city" class="form-control" (change)="OnCityChange($event)">
+                    <option value="">---city---</option>
+
+                    <option *ngFor="let c of cities" [value]="c">{{c}}</option>
+                </select>
+            </div>
+</div>  
+        <div class="col-12 mt-2">
+            <div class="card">
+                <div class="card-header">
+                    <label class="form-label"> </label>
+                    Weather
+                </div>
+                <div class="card-body">
+                    <form action="" [formGroup]="fWeather">
+
+                        <div class="card-text row">
+                            <div class="form-group">
+                                <label class="form-label"> Description</label>
+
+                                <input type="text" class="form-control" formControlName="weatherDescription" />
+
+                            </div>
+                            <div class="col-md-5">
+
+                            <div class="form-group">
+                                <label class="form-label"> Latitude</label>
+                                <input type="text" class="form-control" formControlName="lat" />
+
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label"> Longitude</label>
+                                <input type="text" class="form-control" formControlName="long" />
+
+                            </div>
+                        </div>
+
+                            <H2 class="mt-4">Main</H2>
+                            <hr>
+                            <div class="col-md-5">
+
+                                <div class="form-group">
+                                    <label class="form-label">Temp C </label>
+                                    <input type="text" class="form-control" formControlName="tempC" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Temp F </label>
+                                    <input type="text" class="form-control" formControlName="temp" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Temp Min. F </label>
+                                    <input type="text" class="form-control" formControlName="tempMin" />
+
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-5">
+
+                                <div class="form-group">
+                                    <label class="form-label">Feels Like C </label>
+                                    <input type="text" class="form-control" formControlName="feelsLikeC" />
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Feels Like F </label>
+                                    <input type="text" class="form-control" formControlName="feelsLike" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Temp Max. F </label>
+                                    <input type="text" class="form-control" formControlName="tempMax" />
+
+                                </div>
+                            </div>
+
+                            <H2 class="mt-4">Wind</H2>
+                            <hr>
+                            <div class="col-md-5">
+                           
+                                <div class="form-group">
+                                    <label class="form-label">Speed (mph)</label>
+                                    <input type="text" class="form-control" formControlName="windSpeed" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Degrees</label>
+                                    <input type="text" class="form-control" formControlName="windDeg" />
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
