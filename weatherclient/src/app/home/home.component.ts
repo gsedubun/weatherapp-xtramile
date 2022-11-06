@@ -39,7 +39,9 @@ export class HomeComponent implements OnInit {
       windSpeed:0,
       windDeg:0,
       lat:0,
-      long:0
+      long:0,
+      humidity:0,
+      pressure:0
     })
   
   }
@@ -82,6 +84,9 @@ if(w.main){
   this.fWeather.controls['feelsLikeC'].setValue(w.main.feelsLikeC);
   this.fWeather.controls['tempMin'].setValue(w.main.tempMin);
   this.fWeather.controls['tempMax'].setValue(w.main.tempMax);
+  this.fWeather.controls['humidity'].setValue(w.main.humidity);
+  this.fWeather.controls['pressure'].setValue(w.main.pressure);
+
 
 }
 if(w.wind){
